@@ -9,6 +9,9 @@ project(libzip
   VERSION 1.10.1
   LANGUAGES C)
 
+set(ZLIB_LIBRARY "zlib/zlib")
+set(ZLIB_INCLUDE_DIR "zlib/zlib")
+
 option(ENABLE_COMMONCRYPTO "Enable use of CommonCrypto" ON)
 option(ENABLE_GNUTLS "Enable use of GnuTLS" ON)
 option(ENABLE_MBEDTLS "Enable use of mbed TLS" ON)
@@ -19,13 +22,13 @@ option(ENABLE_BZIP2 "Enable use of BZip2" ON)
 option(ENABLE_LZMA "Enable use of LZMA" ON)
 option(ENABLE_ZSTD "Enable use of Zstandard" ON)
 
-option(ENABLE_FDOPEN "Enable zip_fdopen, which is not allowed in Microsoft CRT secure libraries" ON)
+option(ENABLE_FDOPEN "Enable zip_fdopen, which is not allowed in Microsoft CRT secure libraries" OFF)
 
-option(BUILD_TOOLS "Build tools in the src directory (zipcmp, zipmerge, ziptool)" ON)
-option(BUILD_REGRESS "Build regression tests" ON)
-option(BUILD_OSSFUZZ "Build fuzzers for ossfuzz" ON)
-option(BUILD_EXAMPLES "Build examples" ON)
-option(BUILD_DOC "Build documentation" ON)
+option(BUILD_TOOLS "Build tools in the src directory (zipcmp, zipmerge, ziptool)" OFF)
+option(BUILD_REGRESS "Build regression tests" OFF)
+option(BUILD_OSSFUZZ "Build fuzzers for ossfuzz" OFF)
+option(BUILD_EXAMPLES "Build examples" OFF)
+option(BUILD_DOC "Build documentation" OFF)
 
 include(CheckFunctionExists)
 include(CheckIncludeFiles)
@@ -58,7 +61,7 @@ if(WIN32)
 endif()
 
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
-option(LIBZIP_DO_INSTALL "Install libzip and the related files" ON)
+option(LIBZIP_DO_INSTALL "Install libzip and the related files" OFF)
 
 option(SHARED_LIB_VERSIONNING "Add SO version in .so build" ON)
 
