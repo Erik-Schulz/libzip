@@ -1,7 +1,6 @@
 include(CheckFunctionExists)
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
-set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
 
 add_library(zip
   zip_add.c
@@ -116,7 +115,6 @@ add_library(zip
   ${CMAKE_CURRENT_BINARY_DIR}/zip_err_str.c
   )
 add_library(libzip::zip ALIAS zip)
-set_property(TARGET zip PROPERTY COMPILE_WARNING_AS_ERROR OFF)
 
 if(WIN32)
   target_compile_definitions(zip PRIVATE WIN32_LEAN_AND_MEAN)

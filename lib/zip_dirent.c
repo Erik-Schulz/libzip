@@ -126,7 +126,7 @@ _zip_cdir_write(zip_t *za, const zip_filelist_t *filelist, zip_uint64_t survivor
     zip_buffer_t *buffer;
     zip_int64_t off;
     zip_uint64_t i;
-    zip_uint32_t cdir_crc;
+    zip_uint32_t cdir_crc = 0;
 
     if ((off = zip_source_tell_write(za->src)) < 0) {
         zip_error_set_from_source(&za->error, za->src);

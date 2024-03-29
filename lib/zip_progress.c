@@ -268,6 +268,7 @@ struct legacy_ud {
 
 static void
 _zip_legacy_progress_callback(zip_t *za, double progress, void *vud) {
+    za;
     struct legacy_ud *ud = (struct legacy_ud *)vud;
 
     ud->callback(progress);

@@ -238,10 +238,10 @@ extern const int _zip_err_details_count;
 
 /* directory entry: general purpose bit flags */
 
-#define ZIP_GPBF_ENCRYPTED 0x0001u         /* is encrypted */
-#define ZIP_GPBF_DATA_DESCRIPTOR 0x0008u   /* crc/size after file data */
+#define ZIP_GPBF_ENCRYPTED 0x0001ui16         /* is encrypted */
+#define ZIP_GPBF_DATA_DESCRIPTOR 0x0008ui16   /* crc/size after file data */
 #define ZIP_GPBF_STRONG_ENCRYPTION 0x0040u /* uses strong encryption */
-#define ZIP_GPBF_ENCODING_UTF_8 0x0800u    /* file name encoding is UTF-8 */
+#define ZIP_GPBF_ENCODING_UTF_8 0x0800ui16    /* file name encoding is UTF-8 */
 
 
 /* extra fields */

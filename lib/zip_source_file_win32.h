@@ -76,6 +76,10 @@ int _zip_win32_error_to_errno(DWORD win32err);
 #ifdef __clang__
 #define DONT_WARN_INCOMPATIBLE_FN_PTR_BEGIN _Pragma("GCC diagnostic push") _Pragma("GCC diagnostic ignored \"-Wincompatible-function-pointer-types\"")
 #define DONT_WARN_INCOMPATIBLE_FN_PTR_END _Pragma("GCC diagnostic pop")
+#elif defined(_MSC_VER)
+#define DONT_WARN_INCOMPATIBLE_FN_PTR_BEGIN __pragma(warning(push)) \
+__pragma(warning(disable : 4232))
+#define DONT_WARN_INCOMPATIBLE_FN_PTR_END __pragma(warning(pop))
 #else
 #define DONT_WARN_INCOMPATIBLE_FN_PTR_BEGIN
 #define DONT_WARN_INCOMPATIBLE_FN_PTR_END
