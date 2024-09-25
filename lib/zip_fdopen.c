@@ -40,23 +40,24 @@
 
 ZIP_EXTERN zip_t *
 zip_fdopen(int fd_orig, int _flags, int *zep) {
-    int fd;
-    FILE *fp;
-    zip_t *za;
-    zip_source_t *src;
-    struct zip_error error;
-
     if (_flags < 0 || (_flags & ~(ZIP_CHECKCONS | ZIP_RDONLY))) {
         _zip_set_open_error(zep, NULL, ZIP_ER_INVAL);
         return NULL;
     }
 
 #ifndef ENABLE_FDOPEN
-    _zip_set_open_error(zep, NULL, ZIP_ER_OPNOTSUPP);
+	fd_orig;
+	_zip_set_open_error(zep, NULL, ZIP_ER_OPNOTSUPP);
     return NULL;
 #else
     /* We dup() here to avoid messing with the passed in fd.
        We could not restore it to the original state in case of error. */
+
+    int fd;
+    FILE *fp;
+    zip_t *za;
+    zip_source_t *src;
+    struct zip_error error;
 
     if ((fd = dup(fd_orig)) < 0) {
         _zip_set_open_error(zep, NULL, ZIP_ER_OPEN);

@@ -42,6 +42,7 @@ zip_file_set_dostime(zip_t *za, zip_uint64_t idx, zip_uint16_t dtime, zip_uint16
 
 ZIP_EXTERN int
 zip_file_set_mtime(zip_t *za, zip_uint64_t idx, time_t mtime, zip_flags_t flags) {
+    flags;
     zip_entry_t *e;
 
     if (_zip_get_dirent(za, idx, 0, NULL) == NULL)

@@ -179,6 +179,7 @@ endif()
 
 target_link_libraries(zip PRIVATE ZLIB::ZLIB)
 target_include_directories(zip
+  SYSTEM
   PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/lib>
   $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
